@@ -2,6 +2,7 @@ import os
 import requests
 import shutil
 import subprocess
+import time
 
 def download_file(url, dest_folder):
     print("Crimson Loader Updater")
@@ -18,6 +19,7 @@ def download_file(url, dest_folder):
         with open(local_filename, 'wb') as f:
             shutil.copyfileobj(r.raw, f)
     
+    print(f"File downloaded and saved to {local_filename}")
     return local_filename
 
 def open_file(filepath):
@@ -32,7 +34,10 @@ def main():
     
     downloaded_file = download_file(url, dest_folder)
     open_file(downloaded_file)
-    break
+    print("Update process completed successfully.")
+    time.sleep(1.5)
+    print("Closing...")
+    exit()
 
 if __name__ == "__main__":
     main()
