@@ -32,6 +32,7 @@ def main():
     
     downloaded_file = download_file(url, dest_folder)
     open_file(downloaded_file)
+    break
 
 if __name__ == "__main__":
     main()
