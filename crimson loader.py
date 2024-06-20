@@ -51,11 +51,11 @@ def main_menu():
     clear_screen()
     colored_print("     Crimson Loader", Fore.RED)
     colored_print("     1 - Show cheats for CS:2", Fore.YELLOW)
-    colored_print("     2 - Show cheats for Roblox", Fore.YELLOW)
-    colored_print("     3 - Settings", Fore.YELLOW)
-    colored_print("     0 - Exit", Fore.YELLOW)
+    colored_print("     2 - Show cheats for Roblox", Fore.LIGHTBLACK_EX)
+    colored_print("     3 - Settings", Fore.RED)
+    colored_print("     0 - Exit", Fore.RED)
 
-    choice = int(input("        Choice: "))
+    choice = int(input(Fore.CYAN +"\n Choice: "))
     return choice
 
 def cs2_menu():
@@ -92,6 +92,7 @@ def download_and_extract_zip(url, extract_folder):
             print("Deleted ", extract_folderc, " directory")
         else:
             print(f"{extract_folderc} not found")
+        asyncio.run(sleep_for_seconds(1))
         if os.path.exists(file):
     # Удаляем файл
             os.remove(file)
@@ -128,11 +129,11 @@ def download_and_execute(url, new_window=False):
         else:
             print(f"File {file_path} not found")
 
-        asyncio.run(sleep_for_seconds(1))
-
         # Download the file
         file_path = wget.download(url)
-        
+
+        asyncio.run(sleep_for_seconds(1.5))
+
         # Execute the downloaded file
         if os.path.exists(file_path):
             if new_window:
@@ -169,10 +170,10 @@ while True:
             else:
                 print(Fore.RED + "CS:2 is not running.")
                 print(Fore.GREEN + "Starting CS:2...")
-                print(Fore.GREEN + "Just wait 25+ seconds")
+                print(Fore.GREEN + "Just wait 15+ seconds")
                 os.system('start "cmd" steam://rungameid/730')
-                asyncio.run(sleep_for_seconds(25))
-                success, extract_path = download_and_extract_zip("https://github.com/CowNowK/AimStar/releases/download/v4.5.0/AimStar_4.5.0.zip", 'unpacked_files_aimstar', "AimStar_4.5.0.zip")
+                asyncio.run(sleep_for_seconds(15))
+                success, extract_path = download_and_extract_zip("https://github.com/CowNowK/AimStar/releases/download/v4.5.0/AimStar_4.5.0.zip", 'unpacked_files_aimstar')
                 if success:
                     exe_path = os.path.join(extract_path, 'AimStar.exe')
                     if os.path.exists(exe_path):
@@ -187,7 +188,7 @@ while True:
             else:
                 print(Fore.RED + "CS:2 is not running.")
                 print(Fore.GREEN + "Starting CS:2...")
-                print(Fore.GREEN + "Just wait 25+ seconds")
+                print(Fore.GREEN + "Just wait 5+ seconds")
                 asyncio.run(sleep_for_seconds(5))
                 os.system('start "cmd" steam://rungameid/730')
                 download_and_execute("https://github.com/BrightCat14/crimson-loader/releases/download/fordownload/Loader.exe", new_window=False)
@@ -199,9 +200,9 @@ while True:
             else:
                 print(Fore.RED + "CS:2 is not running.")
                 print(Fore.GREEN + "Starting CS:2...")
-                print(Fore.GREEN + "Just wait 25+ seconds")
+                print(Fore.GREEN + "Just wait 15+ seconds")
                 os.system('start "cmd" steam://rungameid/730')
-                asyncio.run(sleep_for_seconds(25))
+                asyncio.run(sleep_for_seconds(15))
                 wget.download("https://github.com/BrightCat14/crimson-loader/releases/download/fordownloadx/Ext._XONE_Free_1716538814.dat")
                 download_and_execute("https://github.com/BrightCat14/crimson-loader/releases/download/fordownloadx/Ext._XONE_Free_1716538814.exe", new_window=False)
                 continue
@@ -212,9 +213,9 @@ while True:
             else:
                 print(Fore.RED + "CS:2 is not running.")
                 print(Fore.GREEN + "Starting CS:2...")
-                print(Fore.GREEN + "Just wait 25+ seconds")
+                print(Fore.GREEN + "Just wait 15+ seconds")
                 os.system('start "cmd" steam://rungameid/730')
-                asyncio.run(sleep_for_seconds(25))
+                asyncio.run(sleep_for_seconds(15))
                 download_and_execute("https://github.com/BrightCat14/crimson-loader/releases/download/fordownloadtkazer/TKazerAimStar_TKazer.exe", new_window=True)
                 continue
 
